@@ -19,6 +19,9 @@ class Dragon:
         :param damage:int  Колличество нанесенного урона Дракону
         :return: None
         """
+        if damage < 0:  # Защита от добавления здоровья Дракону путем ввода отрицательного урона
+            damage = -damage
+
         if self.health - damage <= 0:
             self.health = 0
             print(self.name, 'Побежден')
