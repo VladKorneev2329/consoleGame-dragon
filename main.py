@@ -25,13 +25,23 @@ class Dragon:
         else:
             self.health -= damage
 
+    @property
     def is_alive(self):
         """Проверка на то, жив ли дракон"""
         return self.health > 0
 
 
 def main():
-    pass
+    hydra = Dragon('hydra')
+
+    flag_game_end = False
+    while not flag_game_end:
+
+        hydra.get_info()
+        damage = int(input('Урон: '))
+        hydra.get_damage(damage)
+        if not hydra.is_alive:
+            flag_game_end = True
 
 if __name__ == '__main__':
     main()
