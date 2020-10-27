@@ -32,16 +32,24 @@ class Dragon:
 
 
 def main():
-    hydra = Dragon('hydra')
+    enemy_list = [Dragon('hydra'), Dragon('kali')]
 
     flag_game_end = False
     while not flag_game_end:
 
-        hydra.get_info()
+        enemy_list[0].get_info()
         damage = int(input('Урон: '))
-        hydra.get_damage(damage)
-        if not hydra.is_alive:
+        enemy_list[0].get_damage(damage)
+
+        if not enemy_list[0].is_alive:
+            enemy_list.pop(0)
+
+        if not enemy_list:
+            print('-'*25)
+            print('Все драконы побеждены')
+            print('-'*25)
             flag_game_end = True
+
 
 if __name__ == '__main__':
     main()
